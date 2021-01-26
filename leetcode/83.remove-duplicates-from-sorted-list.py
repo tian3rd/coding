@@ -13,13 +13,14 @@
 class Solution:
     def deleteDuplicates(self, head: ListNode) -> ListNode:
         dummyHead = pointer = ListNode()
+        # while loop exit when head points to None
         while head is not None:
+            # while loop exits when head has no next or is not equal to next val
             while head.next is not None and head.val == head.next.val:
                 head = head.next
             pointer.next = head
             pointer = pointer.next
             head = head.next
-            # print(dummyHead.next)
         return dummyHead.next
         
 # @lc code=end
