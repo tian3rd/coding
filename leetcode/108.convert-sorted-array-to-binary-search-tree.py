@@ -13,6 +13,8 @@
 #         self.right = right
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        # still using recursion. it's like math induction, find the base case, and
+        # start induction by a set of rules.
         if nums is None:
             return None
         if len(nums) == 1:
