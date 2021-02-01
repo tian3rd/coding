@@ -44,6 +44,8 @@ class Solution:
         return 1+max(self.max_depth(root.left), self.max_depth(root.right))
 
     def isBalanced(self, root: TreeNode) -> bool:
+        # this balance onley means left and right subtrees of every node differ in height by no more than 1.
+        # so [1,2,3,4,5,6,null,8] is still a valid balanced tree.
         if root is None:
             return True
         if root.left is None and root.right is not None:
