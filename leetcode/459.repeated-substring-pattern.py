@@ -12,6 +12,7 @@ class Solution:
             return False
         if len(set(list(s))) == 1:
             return True
+        # seg mark # of segments to be examined
         for seg in range(len(s)//2, 1, -1):
             if len(s)%seg != 0:
                 continue

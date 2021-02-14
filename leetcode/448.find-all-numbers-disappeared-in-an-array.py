@@ -7,7 +7,6 @@
 # @lc code=start
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
-        # O(n)?
         apperances = [True for i in range(len(nums))]
         for i in range(len(nums)):
             apperances[nums[i]-1] = False
@@ -16,6 +15,8 @@ class Solution:
             if apperances[ele]:
                 rtn.append(ele+1)
         return rtn
+
+        # O(n) without extra space?
         
 # @lc code=end
 
