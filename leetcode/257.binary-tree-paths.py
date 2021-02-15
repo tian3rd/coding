@@ -13,24 +13,44 @@
 #         self.right = right
 class Solution:
     def binaryTreePaths(self, root: TreeNode) -> List[str]:
-        # using dfs 
-        s0 = ""
-        rtn = []
-        self.dfs(root, rtn, s0)
-        return rtn
+    #     # using dfs 
+    #     s0 = ""
+    #     rtn = []
+    #     self.dfs(root, rtn, s0)
+    #     return rtn
 
-    def dfs(self, root: TreeNode, rtn: List[str], s: str):
-        if root is None:
-            return
-        s += "->"+str(root.val)
-        if root.left is None and root.right is None:
-            rtn.append(s[2:])
-            return
-        if root.left is not None:
-            self.dfs(root.left, rtn, s)
-        if root.right is not None:
-            self.dfs(root.right, rtn, s)
+    # def dfs(self, root: TreeNode, rtn: List[str], s: str):
+    #     if root is None:
+    #         return
+    #     s += "->"+str(root.val)
+    #     if root.left is None and root.right is None:
+    #         rtn.append(s[2:])
+    #         return
+    #     if root.left is not None:
+    #         self.dfs(root.left, rtn, s)
+    #     if root.right is not None:
+    #         self.dfs(root.right, rtn, s)
 
+        self.s = ""
+        self.rtn = []
+        def helper(root: TreeNode):
+            if root is None:
+                return
+            self.s += "->"+str(root.val)
+            # if it's a leaf
+            if root.left is None and root.right is None:
+                self.rtn.append(self.s[2:])
+            if root.left is not None:
+                # use a temporary s0 to remember original string
+                s0 = self.s
+                helper(root.left)
+                # set it to original for the right helper
+                self.s = s0
+            if root.right is not None:
+                helper(root.right)
+        
+        helper(root)
+        return self.rtn
         
 # @lc code=end
 
