@@ -7,6 +7,9 @@
 # @lc code=start
 class Solution:
     def longestWord(self, words: List[str]) -> str:
+        '''
+        it's bugging me...
+        '''
         
         
 # @lc code=end
