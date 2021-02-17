@@ -11,18 +11,23 @@ class MyHashSet:
         """
         Initialize your data structure here.
         """
+        self.hashset = set()
         
 
     def add(self, key: int) -> None:
+        self.hashset.add(key)
         
 
     def remove(self, key: int) -> None:
+        if self.contains(key):
+            self.hashset.remove(key)
         
 
     def contains(self, key: int) -> bool:
         """
         Returns true if this set contains the specified element
         """
+        return key in self.hashset
         
 
 
