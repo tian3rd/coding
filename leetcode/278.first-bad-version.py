@@ -16,14 +16,15 @@ class Solution:
         :type n: int
         :rtype: int
         """
-        # binary search 
+        if n == 1:
+            return 1
         left, right = 1, n
         while left <= right:
-            if isBadVersion((left+right)//2) is False:
-                left = (left+right)//2 + 1
+            mid = (left + right + 1) // 2
+            if not isBadVersion(mid):
+                left = mid + 1
             else:
-                right = (left+right)//2 - 1
+                right = mid - 1
         return left
-        
 # @lc code=end
 

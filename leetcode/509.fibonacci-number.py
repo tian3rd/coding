@@ -7,19 +7,12 @@
 # @lc code=start
 class Solution:
     def fib(self, n: int) -> int:
-        # if n<2:
-        #     return n
-        # f = [0, 1]
-        # for _ in range(n-1):
-        #     f.append(f[-1]+f[-2])
-        # return f[-1]
-
-        # no need to create a whole list
-        if n<2:
+        if n == 0 or n == 1:
             return n
-        a, b = 0, 1
-        for _ in range(n-1):
-            a, b = b, a+b
-        return b
+        rtn = [0, 1]
+        for _ in range(2, n + 1):
+            rtn.append(rtn[-1] + rtn[-2])
+        return rtn[-1]
+        
 # @lc code=end
 
